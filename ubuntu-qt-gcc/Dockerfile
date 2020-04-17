@@ -8,7 +8,8 @@ RUN apt-get update && apt-get clean
 # Install common dependencies
 RUN apt-get install -y \
 	build-essential \
-	git
+	git \
+	python3
 
 # Install C/C++ compiler
 RUN apt-get install -y \
