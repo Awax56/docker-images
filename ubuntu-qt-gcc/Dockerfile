@@ -20,7 +20,7 @@ RUN apt-get install -y \
     
 # Install Robot framework
 RUN apt-get install -y \
-    python \
+    python3 \
     python-pip
     
 RUN pip install robotframework
@@ -36,6 +36,3 @@ WORKDIR /build
 
 # Set up a volume for the generated reports
 VOLUME /robot
-
-# Execute all robot tests
-CMD ["run-tests.sh"]
