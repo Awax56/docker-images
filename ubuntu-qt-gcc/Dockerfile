@@ -17,6 +17,13 @@ RUN apt-get install -y \
     gcc   \
     make  \
     cmake
+    
+# Install Robot framework
+RUN apt-get install -y \
+    python \
+    python-pip
+    
+RUN pip install robotframework
 
 # Install Qt
 RUN apt-get install -y \
@@ -26,3 +33,9 @@ RUN apt-get install -y \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /build
+
+# Set up a volume for the generated reports
+VOLUME /robot
+
+# Execute all robot tests
+CMD ["run-tests.sh"]
