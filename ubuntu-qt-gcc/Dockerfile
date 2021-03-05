@@ -25,6 +25,10 @@ RUN apt-get install -y \
     
 RUN pip install robotframework
 
+# Install lcov for coverage
+RUN apt-get install -y \
+	lcov
+
 # Install Qt
 RUN apt-get install -y \
 	qt5-default
