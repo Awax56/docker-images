@@ -31,7 +31,7 @@ RUN apt-get install -y \
 
 # Install Qt
 RUN apt-get install -y \
-	qt5-default
+	qt5-default \
 	libqt5charts5-dev
 
 # Clean apt cache
