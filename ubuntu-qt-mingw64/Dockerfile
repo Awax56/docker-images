@@ -88,7 +88,6 @@ RUN ./configure \
 	-skip qtactiveqt \
 	-skip qtandroidextras \
 	-skip qtcanvas3d \
-	-qtcharts \
 	-skip qtconnectivity \
 	-skip qtdatavis3d \
 	-skip qtdeclarative \
