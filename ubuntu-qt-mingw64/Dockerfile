@@ -66,15 +66,15 @@ ARG QT_DOWNLOAD_BRANCH=official_releases
 
 ENV QT_SDK_DIR=/opt/qt-sdk-${QT_VERSION_FULL}
 ENV QT_BUILD_ROOT=/tmp/qt_build
-ENV QT_BUILD_DIR=${QT_BUILD_ROOT}/qt-everywhere-src-${QT_VERSION_MAJOR}.${QT_VERSION_MINOR}.${QT_VERSION_PATCH}/build
+ENV QT_BUILD_DIR=${QT_BUILD_ROOT}/qt-everywhere-src-${QT_VERSION}.${QT_VERSION_PATCH}/build
 
 # Download sources
 WORKDIR ${QT_BUILD_ROOT}
 ARG QT_SOURCES_URL=https://download.qt.io/${QT_DOWNLOAD_BRANCH}/qt/${QT_VERSION}/${QT_VERSION_FULL}/single
-ARG QT_SOURCES_TARBALL=qt-everywhere-opensource-src-${QT_VERSION_FULL}.tar.xz
+ARG QT_SOURCES_TARBALL=qt-everywhere-src-${QT_VERSION_FULL}.tar.xz
 RUN curl -sSL ${QT_SOURCES_URL}/${QT_SOURCES_TARBALL} | tar xJ
 
-WORKDIR qt-everywhere-opensource-src-${QT_VERSION_FULL}
+WORKDIR qt-everywhere-src-${QT_VERSION_FULL}
 
 # Configure, make, install
 RUN ./configure \
