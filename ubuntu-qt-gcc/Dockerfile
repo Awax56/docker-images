@@ -21,7 +21,7 @@ RUN apt-get install -y \
 # Install Robot framework
 RUN apt-get install -y \
     python3 \
-    python-pip
+    python3-pip
     
 RUN pip install robotframework
 
