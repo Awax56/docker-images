@@ -23,7 +23,7 @@ RUN apt-get install -y \
     python3 \
     python3-pip
     
-RUN pip install robotframework
+RUN pip3 install robotframework
 
 # Install lcov for coverage
 RUN apt-get install -y \
