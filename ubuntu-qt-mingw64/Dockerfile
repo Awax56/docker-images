@@ -58,8 +58,8 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # QT Version
 ARG QT_VERSION_MAJOR=5
-ARG QT_VERSION_MINOR=12
-ARG QT_VERSION_PATCH=8
+ARG QT_VERSION_MINOR=9
+ARG QT_VERSION_PATCH=5
 ARG QT_VERSION=${QT_VERSION_MAJOR}.${QT_VERSION_MINOR}
 ARG QT_VERSION_FULL=${QT_VERSION}.${QT_VERSION_PATCH}
 ARG QT_DOWNLOAD_BRANCH=official_releases
@@ -71,10 +71,10 @@ ENV QT_BUILD_DIR=${QT_BUILD_ROOT}/qt-everywhere-src-${QT_VERSION}.${QT_VERSION_P
 # Download sources
 WORKDIR ${QT_BUILD_ROOT}
 ARG QT_SOURCES_URL=https://download.qt.io/${QT_DOWNLOAD_BRANCH}/qt/${QT_VERSION}/${QT_VERSION_FULL}/single
-ARG QT_SOURCES_TARBALL=qt-everywhere-src-${QT_VERSION_FULL}.tar.xz
+ARG QT_SOURCES_TARBALL=qt-everywhere-opensource-src-${QT_VERSION_FULL}.tar.xz
 RUN curl -sSL ${QT_SOURCES_URL}/${QT_SOURCES_TARBALL} | tar xJ
 
-WORKDIR qt-everywhere-src-${QT_VERSION_FULL}
+WORKDIR qt-everywhere-opensource-src-${QT_VERSION_FULL}
 
 # Configure, make, install
 RUN ./configure \
