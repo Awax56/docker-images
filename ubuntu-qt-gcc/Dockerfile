@@ -37,6 +37,9 @@ RUN apt-get install -y \
 # Clean apt cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Workaround to fix "libQt5Core.so.5: cannot open shared object file: No such file or directory"
+strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
+
 WORKDIR /build
 
 # Set up a volume for the generated reports
