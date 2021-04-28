@@ -12,6 +12,7 @@ RUN apt-get update && apt-get clean
 # Install common dependencies
 RUN apt-get install -y --no-install-recommends \
     apt-utils \
+    ca-certificates \
     curl \
     python \
     git \
