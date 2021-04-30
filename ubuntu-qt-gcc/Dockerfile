@@ -7,32 +7,30 @@ RUN apt-get update && apt-get clean
 
 # Install common dependencies
 RUN apt-get install -y \
-	build-essential \
-	git \
-	python3
+    build-essential \
+    git \
+    python3
 
 # Install C/C++ compiler
 RUN apt-get install -y \
     g++   \
     gcc   \
     make  \
-    cmake
-    
+    cmake \
+    lcov
+
 # Install Robot framework
 RUN apt-get install -y \
     python3 \
     python3-pip
-    
-RUN pip3 install robotframework
 
-# Install lcov for coverage
-RUN apt-get install -y \
-	lcov
+RUN pip3 install robotframework
 
 # Install Qt
 RUN apt-get install -y \
-	qt5-default \
-	libqt5charts5-dev
+    qt5-default \
+    libqt5charts5-dev \
+    libseccomp-dev
 
 # Clean apt cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
