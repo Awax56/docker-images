@@ -24,6 +24,14 @@ cmake -DCMAKE_TOOLCHAIN_FILE=toolchain-mingw-w64-x86-64.cmake .
 make
 ```
 
+## How to publish image to dockerhub
+
+```console
+docker login
+docker build -t jlesauce/<image-name> .
+docker push jlesauce/<image-name>
+```
+
 ## Useful commands:
 
 - List the containers:
