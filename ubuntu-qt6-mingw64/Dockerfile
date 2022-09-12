@@ -113,6 +113,9 @@ RUN ./configure \
     -- \
     -DCMAKE_TOOLCHAIN_FILE=/tmp/toolchain-mingw-w64-x86-64.cmake
 
+# Workaround for linking issue of libQt6Core (https://github.com/Microsoft/WSL/issues/3023)
+RUN strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.2.4
+
 RUN cmake --build . --parallel
 RUN cmake --install .
 
@@ -120,7 +123,7 @@ RUN cmake --install .
 #    Configure environment
 #-----------------------------
 
-ENV PATH="${PATH}:${QT_SDK_DIR}/bin"
-ENV CMAKE_PREFIX_PATH="${QT_SDK_DIR}/lib/cmake/Qt6"
+ENV PATH="${PATH}:${QT_INSTALL_DIR}/bin"
+ENV CMAKE_PREFIX_PATH="${QT_INSTALL_DIR}/lib/cmake/Qt6"
 
 WORKDIR /build
